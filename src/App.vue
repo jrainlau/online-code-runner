@@ -9,7 +9,7 @@
   <iframe
     style="display: none;"
     ref="iframe"
-    src="/preview.html"
+    :src="pathname"
     sandbox="allow-same-origin allow-scripts">
   </iframe>
 </template>
@@ -28,6 +28,7 @@ export default {
   },
   data() {
     return {
+      pathname: `${location.pathname}preview.html`,
       diffOptions: {
         original: '// 哈哈哈\n呵呵呵\n嘻嘻嘻',
         modified: '// 哈哈哈\n呵嘿呵\n嘻嘻嘻',
