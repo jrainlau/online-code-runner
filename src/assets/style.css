@@ -1,0 +1,8 @@
+.warnDecoration {
+  background: #ffd900;
+  width: 100% !important;
+}
+.errorDecoration {
+  background: #ff3300;
+  width: 100% !important;
+}
