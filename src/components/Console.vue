@@ -41,7 +41,7 @@ export default {
     },
     bindEvents() {
       window.addEventListener('message', (e) => {
-        if (e.data.from === 'alita') {
+        if (e.data.from === 'codeRunner') {
           const { data, type } = e.data;
           data.forEach((d) => {
             const info = { type };
@@ -63,7 +63,7 @@ export default {
       const startLine = this.linesCount + 1;
       const endLine = this.linesCount + info.lines;
       this.linesCount = endLine;
-      editor.setValue(this.infos);
+      editor.setValue(this.infos.replace(/\n$/, ''));
       this.deltaDecorations.push({
         range: new monaco.Range(startLine, 1, endLine, 1),
         options: { isWholeLine: true, className: `${info.type}Decoration` },

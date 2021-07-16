@@ -22,9 +22,9 @@
 
 <script>
 /* eslint-disable no-useless-escape */
-
 import Monaco from './components/Monaco.vue';
 import Console from './components/Console.vue';
+import codeTpl from './utils/codeTemplate';
 
 export default {
   name: 'App',
@@ -47,17 +47,7 @@ export default {
       const { iframe } = this.$refs;
       const iframeDoc = iframe.contentDocument;
       iframeDoc.open();
-      iframeDoc.write(`
-  <body>
-    <script>
-try {
-  ${code.replace('parent.document', 'window.disableParent')}
-} catch(e) {
-  console.error(e.name, e.message)
-}
-    <\/script>
-  </body>
-      `);
+      iframeDoc.write(codeTpl(code));
       iframeDoc.close();
     },
     clearConsole() {

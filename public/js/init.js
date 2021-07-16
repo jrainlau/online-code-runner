@@ -1,7 +1,7 @@
 function rewriteConsole(type) {
   const origin = console[type];
   console[type] = (...args) => {
-    window.parent.postMessage({ from: 'alita', type, data: args }, '*');
+    window.parent.postMessage({ from: 'codeRunner', type, data: args }, '*');
     origin.apply(console, args);
   };
 }
