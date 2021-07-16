@@ -71,16 +71,24 @@ export default {
       editor.deltaDecorations([], this.deltaDecorations);
       editor.revealLineInCenter(endLine);
     },
+    clear() {
+      console.clear();
+      this.infos = '';
+      this.linesCount = 0;
+      this.deltaDecorations = []
+      editor.setValue(this.infos);
+      editor.deltaDecorations([], this.deltaDecorations);
+      editor.revealLineInCenter(1);
+    }
   },
 };
 </script>
 
 <style lang="less" scoped>
 .console {
-  border: 2px solid #ccc;
-  width: 500px;
+  width: 100%;
   .container {
-    height: 400px;
+    height: 30vh;
   }
 }
 </style>

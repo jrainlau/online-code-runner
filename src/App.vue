@@ -1,10 +1,16 @@
 <template>
   <div class="app">
-    <Monaco ref="monaco" />
-    <div>
-      <button @click="runCode">Run code</button>
+    <h2>Online code runner</h2>
+    <div class="monaco">
+      <Monaco ref="monaco" />
     </div>
-    <Console />
+    <div class="buttons">
+      <button @click="runCode">Click to run code</button>
+      <button class="clear" @click="clearConsole">Clear</button>
+    </div>
+    <div class="console">
+      <Console ref="console" />
+    </div>
   </div>
   <iframe
     style="display: none;"
@@ -54,6 +60,9 @@ try {
       `);
       iframeDoc.close();
     },
+    clearConsole() {
+      this.$refs.console.clear();
+    }
   },
 };
 </script>
@@ -62,7 +71,42 @@ try {
 .app {
   width: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 15px;
+  padding: 0 10px;
+  box-sizing: border-box;
+  h2 {
+    margin: 15px 0;
+    font-size: 32px;
+    font-family: fantasy;
+  }
+  .monaco,
+  .console {
+    width: 100%;
+    border: 1px solid #000;
+    box-sizing: border-box;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .buttons {
+    width: 100%;
+    display: flex;
+    button {
+      margin: 5px 0;
+      border: none;
+      width: 100%;
+      border: 2px solid rgb(248, 135, 154);
+      background: rgb(252, 171, 185);
+      height: 5vh;
+      color: #fff;
+      border-radius: 4px;
+      &.clear {
+        width: 30%;
+        border: 2px solid rgb(172, 171, 171);
+        background: rgb(190, 189, 189);
+        margin-left: 5px;
+      }
+    }
+  }
 }
 </style>

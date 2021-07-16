@@ -1,3 +1,8 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
 .warnDecoration {
   background: #ffd900;
   width: 100% !important;

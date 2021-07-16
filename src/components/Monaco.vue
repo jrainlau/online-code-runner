@@ -15,6 +15,8 @@ const defaultOptions = {
   automaticLayout: true,
   wordWrap: 'wordWrapColumn',
   wordWrapColumn: 120,
+  lineHeight: 28,
+  fontSize: 16,
   minimap: {
     size: 'fill',
   },
@@ -26,7 +28,16 @@ export default {
   props: {
     initContent: {
       type: String,
-      default: '// 在这里填入 js 脚本代码\n',
+      default: `// Input javascript code here
+for (let i = 1; i <= 5; i++) {
+  if (i % 2 === 0) {
+    console.warn(i)
+  } else {
+    console.log(i)
+  }
+}
+console.error('Works fine, no error!')
+`,
     },
     diffEditor: {
       type: Object,
@@ -75,10 +86,9 @@ export default {
 
 <style lang="less" scoped>
 .monaco {
-  border: 2px solid #ccc;
-  width: 500px;
+  width: 100%;
   .container {
-    height: 400px;
+    height: 40vh;
   }
 }
 </style>
