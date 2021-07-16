@@ -67,7 +67,6 @@ export default {
   box-sizing: border-box;
   h2 {
     margin: 15px 0;
-    font-size: 32px;
     font-family: fantasy;
   }
   .monaco,
